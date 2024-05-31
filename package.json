@@ -4,7 +4,7 @@
   "description": "A website terminal emulator for connecting to SSH server",
   "main": "webshell.js",
   "scripts": {
-    "test": "node ."
+    "start": "node ."
   },
   "repository": {
     "type": "git",
