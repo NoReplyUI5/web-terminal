@@ -2,6 +2,10 @@
 
 This is a simple web terminal application that allows users to interact with a server via a web browser.
 
+## Discord Community
+
+Join our Discord community for support and discussions: [Click Here](https://discord.gg/Pv8WgVQrwY) 🙂
+
 ## Features
 
 - Terminal interface for executing commands on a remote server.
