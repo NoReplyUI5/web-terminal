@@ -1,0 +1,33 @@
+{
+  "name": "web-terminal",
+  "version": "1.0.0",
+  "description": "A website terminal emulator for connecting to SSH server",
+  "main": "webshell.js",
+  "scripts": {
+    "test": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noreplyui5/Web-Terminal.git"
+  },
+  "keywords": [
+    "ssh"
+  ],
+  "author": "NoReplyUI5",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noreplyui5/Web-Terminal/issues"
+  },
+  "homepage": "https://github.com/noreplyui5/Web-Terminal#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-basic-auth": "^1.2.1",
+    "express-session": "^1.18.0",
+    "ssh2": "^1.15.0",
+    "ws": "^8.17.0",
+    "xterm": "^5.3.0"
+  }
+}

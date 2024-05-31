@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Terminal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand {
+            color: #fff;
+        }
+
+        .terminal-container {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+#terminal {
+    background-color: #2b2b2b;
+    color: #fff;
+    font-family: monospace;
+    padding: 10px;
+    height: 400px;
+    overflow-y: auto;
+    font-size: 14px; /* Adjust the font size here */
+    word-wrap: break-word; /* Enable word wrapping */
+}
+
+        #input {
+            border: none;
+            outline: none;
+            background-color: #2b2b2b;
+            color: #fff;
+            padding: 10px;
+            font-size: 1em;
+            width: 100%;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">Web Terminal</span>
+        </div>
+    </nav>
+    <div class="terminal-container">
+        <div id="terminal"></div>
+        <input id="input" autofocus class="form-control" placeholder="Type your command...">
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <span>Powered by Web Terminal</span>
+        </div>
+    </footer>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const input = document.getElementById('input');
+        const ws = new WebSocket(`ws://${window.location.host}`);
+
+        ws.onmessage = (event) => {
+            const formattedMessage = formatMessage(event.data);
+            terminal.innerHTML += formattedMessage;
+            terminal.scrollTop = terminal.scrollHeight;
+        };
+
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                ws.send(input.value + '\n');
+                input.value = '';
+            }
+        });
+
+        function formatMessage(message) {
+            // Regular expression to match ANSI escape codes
+            const ansiRegex = /\x1b\[[0-9;]*m/g;
+
+            // Replace ANSI escape codes with HTML span elements for styling
+            return message.replace(ansiRegex, (match) => {
+                // Extract color codes from the escape code
+                const colorCodes = match.slice(2, -1).split(';');
+                let style = '';
+
+                // Apply styles based on color codes
+                if (colorCodes.includes('1')) {
+                    style += 'font-weight: bold;';
+                }
+                if (colorCodes.includes('3')) {
+                    // Italic not supported in HTML, you may choose to ignore this
+                }
+                if (colorCodes.includes('4')) {
+                    // Underline not supported in HTML, you may choose to ignore this
+                }
+                if (colorCodes.includes('30')) {
+                    style += 'color: #fff;'; // Black text
+                }
+                if (colorCodes.includes('31')) {
+                    style += 'color: #ff6347;'; // Red text
+                }
+                if (colorCodes.includes('32')) {
+                    style += 'color: #00ff00;'; // Green text
+                }
+                if (colorCodes.includes('33')) {
+                    style += 'color: #ffff00;'; // Yellow text
+                }
+                if (colorCodes.includes('34')) {
+                    style += 'color: #00ffff;'; // Blue text
+                }
+                if (colorCodes.includes('35')) {
+                    style += 'color: #ff00ff;'; // Magenta text
+                }
+                if (colorCodes.includes('36')) {
+                    style += 'color: #00ffff;'; // Cyan text
+                }
+                if (colorCodes.includes('37')) {
+                    style += 'color: #ffffff;'; // White text
+                }
+
+                return `<span style="${style}">`;
+            }) + '</span>';
+        }
+    </script>
+</body>
+</html>
