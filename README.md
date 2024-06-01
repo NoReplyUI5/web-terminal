@@ -2,6 +2,13 @@
 
 This is a simple web terminal application that allows users to interact with a server via a web browser.
 
+## Repository Stats
+
+![GitHub Repo Stars](https://img.shields.io/github/stars/noreplyui5/Web-Terminal?style=for-the-badge)
+![GitHub Repo Forks](https://img.shields.io/github/forks/noreplyui5/Web-Terminal?style=for-the-badge)
+![GitHub Issues](https://img.shields.io/github/issues/noreplyui5/Web-Terminal?style=for-the-badge)
+![GitHub Pull Requests](https://img.shields.io/github/issues-pr/noreplyui5/Web-Terminal?style=for-the-badge)
+
 ## Discord Community
 
 Join our Discord community for support and discussions: [Click Here](https://discord.gg/Pv8WgVQrwY) 🙂
@@ -17,7 +24,7 @@ Join our Discord community for support and discussions: [Click Here](https://dis
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/Web-Terminal.git
+    git clone https://github.com/noreplyui5/Web-Terminal.git
     ```
 
 2. Install dependencies:
