@@ -8,6 +8,7 @@ This is a simple web terminal application that allows users to interact with a s
 ![GitHub Repo Forks](https://img.shields.io/github/forks/noreplyui5/Web-Terminal?style=for-the-badge)
 ![GitHub Issues](https://img.shields.io/github/issues/noreplyui5/Web-Terminal?style=for-the-badge)
 ![GitHub Pull Requests](https://img.shields.io/github/issues-pr/noreplyui5/Web-Terminal?style=for-the-badge)
+![GitHub Pull Requests](https://img.shields.io/github/license/noreplyui5/Web-Terminal?style=for-the-badge)
 
 ## Discord Community
 
