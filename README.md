@@ -63,4 +63,4 @@ The following environment variables can be configured in the `.env` file:
 
 ## License
 
-This project is licensed under the [GNU General Public License v3.0](LICENSE).
+This project is licensed under the [GPL General Public License v3.0](LICENSE).
